@@ -1,0 +1,54 @@
+header:
+  version: 14
+
+machine: imx93-11x11-lpddr4x-evk
+distro: j0nix
+target:
+  - j0nix-image
+
+repos:
+  bitbake:
+    url: "https://git.openembedded.org/bitbake"
+    refspec: "2.8"
+    layers:
+      .: excluded
+
+  openembedded-core:
+    url: "https://git.openembedded.org/openembedded-core"
+    refspec: scarthgap
+    layers:
+      meta:
+
+  meta-freescale:
+    url: "https://github.com/Freescale/meta-freescale.git"
+    refspec: scarthgap
+    layers:
+      meta-freescale
+
+  meta-arm:
+    url: "git://git.yoctoproject.org/meta-arm"
+    layers:
+      metaarm
+      meta-arm-toolchain
+
+  meta-openembedded:
+    url: https://github.com/openembedded/meta-openembedded.git
+    refspec: scarthgap
+    layers:
+      meta-python
+      meta-oe
+      meta-multimedia
+
+  meta-j0nix:
+    url: "https://github.com/jonifndef/meta-j0nix.git"
+    refspec: "main"
+    layers:
+      meta-j0nix
+
+local_conf_header:
+  meta-j0nix: |
+    # Some useful lines you may want to copy to your site.conf for development
+    INHERIT += "rm_work"
+    # EXTRA_IMAGE_FEATURES = "debug-tweaks"
+
+    ACCEPT_FSL_EULA = "1"
