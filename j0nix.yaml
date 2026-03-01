@@ -9,41 +9,44 @@ target:
 repos:
   bitbake:
     url: "https://git.openembedded.org/bitbake"
-    refspec: "2.8"
+    branch: "2.8"
+    path: "layers/bitbake"
     layers:
-      .: excluded
+      .: disabled
 
   openembedded-core:
     url: "https://git.openembedded.org/openembedded-core"
-    refspec: scarthgap
+    branch: "scarthgap"
+    path: "layers/openembedded-core"
     layers:
       meta:
 
   meta-freescale:
     url: "https://github.com/Freescale/meta-freescale.git"
-    refspec: scarthgap
-    layers:
-      meta-freescale
+    branch: "scarthgap"
+    path: "layers/meta-freescale"
 
   meta-arm:
     url: "git://git.yoctoproject.org/meta-arm"
+    branch: "scarthgap"
+    path: "layers/meta-arm"
     layers:
-      metaarm
-      meta-arm-toolchain
+      meta-arm:
+      meta-arm-toolchain:
 
   meta-openembedded:
-    url: https://github.com/openembedded/meta-openembedded.git
-    refspec: scarthgap
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    branch: "scarthgap"
+    path: "layers/meta-openembedded"
     layers:
-      meta-python
-      meta-oe
-      meta-multimedia
+      meta-python:
+      meta-oe:
+      meta-multimedia:
 
   meta-j0nix:
     url: "https://github.com/jonifndef/meta-j0nix.git"
-    refspec: "main"
-    layers:
-      meta-j0nix
+    branch: "main"
+    path: "layers/meta-j0nix"
 
 local_conf_header:
   meta-j0nix: |

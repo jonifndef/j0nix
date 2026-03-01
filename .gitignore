@@ -2,3 +2,4 @@ bitbake/
 openembedded-core/
 build/
 meta-arm/
+layers/
